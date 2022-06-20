@@ -1,0 +1,9 @@
+frame_save_path = 'frames/' 
+interval_frame = 1
+count = 1
+thresholdLoc = 0.9
+locate_size = (512,512)
+gen_size = (256,256)
+spec_size = (128,128)
+batch_size = 1
+success = True
