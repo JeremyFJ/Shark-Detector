@@ -49,7 +49,8 @@ The SD works best with GPU acceleration
 - NVIDIA driver 450.51.05
 
 ## Run
-
+This repository currently instructs on how to detect and classify shark species from MP4 videos
+See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
 ```
 virtualenv .venv
 source .venv/bin/activate
@@ -57,7 +58,7 @@ pip install -r requirements.txt
 ```
 - Input your video into `video/`
 - change your video name in `video_SD.py`
-- `vid = [your video name]`
+- Line 14 `vid = [your video name]`
 - make sure you have enough free memory  
 `python video_SD.py`
 
