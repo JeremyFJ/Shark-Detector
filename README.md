@@ -10,18 +10,27 @@ We applied the SD to common data-generation approaches of sharks: collecting occ
 </p>
 
 ## Models and Data
+
+We developed the SC as a hierarchical classification framework for classifying the identified shark images taxonomically. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) would predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
+
 You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
 
-The dataset structure is shown below
+The dataset structure of training the GSC and SSCg is shown below
 ```
     ├── dataset                   <- root
         ├── training_set          <- training set folders        
-        |   ├── not_shark      <- image files
-        |   ├── shark
+        |   ├── Alopias      <- image files
+                ├──Alopias vulpinus  <- SSCg structure
+                ├──Alopias species 
+        |   ├── Carcharhinus
+        |   ├── Carcharias
         |  
         ├── test_set              <- validation set folders
-        |   ├── not_shark      <- image files
-        |   ├── shark
+        |   ├── Alopias      <- image files
+                ├──Alopias vulpinus  <- SSCg structure
+                ├──Alopias species
+        |   ├── Carcharhinus
+        |   ├── Carcharias
 ``` 
 ## Code
 This model implements the Keras package with a Tensorflow backend entirely in Python.  
@@ -35,6 +44,10 @@ This model implements the Keras package with a Tensorflow backend entirely in Py
 - [pandas 1.2.3](https://pandas.pydata.org)
 - [numpy 1.22.3](https://www.numpy.org)
 
+The SD works best with GPU acceleration 
+- CUDA version 11.0 
+- NVIDIA driver 450.51.05
+
 ## Run
 
 ```
@@ -44,11 +57,13 @@ pip install -r requirements.txt
 ```
 - Input your video into `video/`
 - change your video name in `video_SD.py`
-- `vid = [your video name]` 
+- `vid = [your video name]`
+- make sure you have enough free memory  
+`python video_SD.py`
 
 ## Results
 
-![confusion_matrix](cm_norm_50.png)
+![confusion matrix](cm_normLatest.pdf)
 
 ## Check out
 Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
