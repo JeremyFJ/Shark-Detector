@@ -36,23 +36,15 @@ This model implements the Keras package with a Tensorflow backend entirely in Py
 - [numpy 1.22.3](https://www.numpy.org)
 
 ## Run
-To train the model, run:
-```
-python main_train.py
-```
-Note -- Keep the image directory names static (or make changes to `img_loader.py`)
-- (1) This script will load images.
-- (2) New images can be added to not_shark/ and shark/ folders to increase the training and testing dataset.
-- (3) Once predictions are made on the test set, accuracy and training history is reported in addition to confusion matrix plots for each class.
 
-To classify images(s), run:
 ```
-python main_inference.py
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
-Note -- Add the images you want predicted to `model_predictor/dataset/test_set/shark/` 
-- (1) Training weights saved as `.h5` are loaded for predictions as well as preprocessed data saved as `.npy` files.
-- (2) You can adjust the threshold however you want. It is currently set to 0.90
-- (3) `class_prediction.csv` is produced and `move_file.py` can be run to identify shark and not-shark predictions.
+- Input your video into `video/`
+- change your video name in `video_SD.py`
+- `vid = [your video name]` 
 
 ## Results
 
