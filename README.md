@@ -64,7 +64,7 @@ pip install -r requirements.txt
 `python video_SD.py`
 
 ## Results
-
+`spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
 <p align="center">
   <img src="ODM_1.PNG" alt="SD mako" width="800"/>
 </p>
@@ -73,8 +73,8 @@ pip install -r requirements.txt
 Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
 - [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification)
 
-Web application `sharkPulse` designed to crowdsource shark images from around the world for monitoring shark populations 
-- [sharkPulse](http://sharkpulse.org/)
+`Validation Monitor -- sharkPulse` designed to crowdsource shark images from around the world and involve citizen scientists to validate sightings
+- [sharkPulse](http://sharkpulse.org/](http://sharkpulse.cnre.vt.edu/can-you-recognize/)
 
 ## References
 - [1] Jenrette J, Liu ZY-C, Hastie T, Ferretti F. Data mining Instagram as a tool for tracking global shark populations (TBD). 2020.
@@ -85,4 +85,4 @@ Web application `sharkPulse` designed to crowdsource shark images from around th
 
 ## Contact
 - Data: jjeremy1@vt.edu
-- Model: jjeremy1@vt.edu, zacycliu@stanford.edu
+- Model: jjeremy1@vt.edu, zacycliu@stanford.edu, pchimote@vt.edu
