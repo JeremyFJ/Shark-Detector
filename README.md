@@ -78,13 +78,6 @@ Research Lab `SeaQL website`
 - [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/)
 - [SeaQL](http://35.245.242.176/seaql/)
 
-## References
-- [1] Jenrette J, Liu ZY-C, Hastie T, Ferretti F. Data mining Instagram as a tool for tracking global shark populations (TBD). 2020.
-- [2] Liu ZY-C, Chamberlin AJ, Shome P, Jones IJ, Riveau G, Jouanard N, Ndione, Sokolow SH, De Leo GA. Identification of snails and parasites of medical importance via convolutional neural network: an application for human schistosomiasis. PLoS neglected tropical diseases. 2019.
-- [3] Schroeder J. InstaCrawlR. Crawl public Instagram data using R scripts without API access token. 2018. 
-- [4] Zisserman A, Simonyan K. Very Deep Convolutional Networks for Large-Scale Image Recognition. Published in arXiv. 2014.
-- [5] Alexander Graf and André Koch-Kramer. Instaloader. A tool to download pictures (or videos) along with their captions and other metadata from Instagram. 2016. Ver 4.5.5.
-
 ## Contact
 - Data: jjeremy1@vt.edu
 - Model: jjeremy1@vt.edu, zacycliu@stanford.edu, pchimote@vt.edu
