@@ -74,7 +74,7 @@ Based on a multi-classification model trained to identify vector parasites of Sc
 - [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification)
 
 `Validation Monitor -- sharkPulse` designed to crowdsource shark images from around the world and involve citizen scientists to validate sightings
-- [sharkPulse](http://sharkpulse.org/](http://sharkpulse.cnre.vt.edu/can-you-recognize/)
+- [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-recognize/)
 
 ## References
 - [1] Jenrette J, Liu ZY-C, Hastie T, Ferretti F. Data mining Instagram as a tool for tracking global shark populations (TBD). 2020.
