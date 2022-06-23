@@ -50,6 +50,7 @@ The SD works best with GPU acceleration
 
 ## Run
 This repository currently instructs on how to detect and classify shark species from MP4 videos
+
 See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
 ```
 virtualenv .venv
