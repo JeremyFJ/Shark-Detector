@@ -64,7 +64,7 @@ pip install -r requirements.txt
 ## Results
 
 <p align="center">
-  <img src="cm_norm2.png" alt="confusion matrix" width="600"/>
+  <img src="ODM_1.PNG" alt="SD mako" width="800"/>
 </p>
 
 ## Check out
