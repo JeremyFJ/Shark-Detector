@@ -9,17 +9,8 @@ We applied the SD to common data-generation approaches of sharks: collecting occ
   <img src="pipeline.PNG" alt="pipeline" width="600"/>
 </p>
 
-## Introduction
-Suitable shark conservation depends on well-informed population statuses. While there are adequate direct methods to retrieve such data from scientific surveys and fisheries monitoring, species-specific indices of population abundance coming from these sources are rare for most shark species. These information gaps can be filled with image-based biomonitoring and machine learning. To encourage image-based monitoring and alleviate manual validation, we trained a shark image classification model using convolutional neural networks with a VGG-16 architecture to learn shark features and automatically discriminate shark images. Training and testing images were sourced from social networks and virtual archives. We collected over 24,000 images spanning 224 shark species. The trained model classified 2,500 images per minute on a desktop computer with a graphics processing unit (GPU) and 64 gigabytes of RAM. The model achieved 91% accuracy. We provided a GitHub repository which allows the user to access the training dataset and use the model. As image and video analyses strive to dominate methods for observing sharks in nature, an automated classifier can drastically reduce the burden of manually identifying datasets. Furthermore, a general shark classification and detection approach is a strong foundation for a species-specific framework.
-
-In conjuncture with Instagram web scraping utilizing InstaCrawlR [3] and Instaloader [5] for post collection, this model can be used in a pipeline which maps inferred shark sightings according to locations mentioned in the post [1]. You can find this repository [here.](https://github.com/JeremyFJ/Instagram_sharkSighting)
-
-![image_sample1.png](image_sample1.PNG)
-
-Image examples for the two classes: not-shark, and shark
-
-## Data
-You can download the image repository and saved model weights [here.](https://drive.google.com/drive/folders/1B3zvSgJWfWQmo6mFgJZa4A1uoXSc0lUm?usp=sharing](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs)
+## Models and Data
+You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
 
 The dataset structure is shown below
 ```
@@ -33,7 +24,7 @@ The dataset structure is shown below
         |   ├── shark
 ``` 
 ## Code
-This model implements the Keras package with a Tensorflow backend entirely in Python. The pre-trained VGG16 is a CNN model built by Zisserman and Simonyan from the University of Oxford that achieves 92.7% accuracy from ImageNet with 14 million images and 1000 classes [4]. The final four layers are fully connected and explicitly written here after specifying `include_top=False`. The final layers are also frozen to better train the model to identify shark features. 
+This model implements the Keras package with a Tensorflow backend entirely in Python.  
 
 ### Requires
 - [Anaconda / Python 3.7.3](https://www.anaconda.com/products/individual)
