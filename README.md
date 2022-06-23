@@ -67,6 +67,7 @@ pip install -r requirements.txt
   <img src="cm_normLatest.pdf" alt="confusion matrix" width="600"/>
 </p>
 ![confusion matrix](cm_normLatest.pdf)
+<object data="cm_normLatest.pdf" type="application/pdf" width="700px" height="700px"></object>
 
 ## Check out
 Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
