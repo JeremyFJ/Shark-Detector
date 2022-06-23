@@ -27,11 +27,13 @@ The dataset structure is shown below
 This model implements the Keras package with a Tensorflow backend entirely in Python.  
 
 ### Requires
-- [Anaconda / Python 3.7.3](https://www.anaconda.com/products/individual)
-- [Tensorflow 2.2.0](https://www.tensorflow.org/)
-- [Keras 2.3.1](https://keras.io/)
-- [sklearn 0.21.2](https://scikit-learn.org/stable/)
-- [PIL 6.1.0](https://pillow.readthedocs.io/en/stable/)
+- [Python 3.8.10](https://www.python.org/downloads/)
+- [Tensorflow 2.9.1](https://www.tensorflow.org/)
+- [Keras 2.9.0](https://keras.io/)
+- [PIL 9.1.1](https://pillow.readthedocs.io/en/stable/)
+- [OpenCV 4.5.5.64](https://github.com/skvark/opencv-python)
+- [pandas 1.2.3](https://pandas.pydata.org)
+- [numpy 1.22.3](https://www.numpy.org)
 
 ## Run
 To train the model, run:
