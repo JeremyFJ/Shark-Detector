@@ -17,17 +17,17 @@ You can download the saved model weights [here.](https://drive.google.com/drive/
 
 The dataset structure of training the GSC and SSCg is shown below
 ```
-    ├── dataset                   <- root
-        ├── training_set          <- training set folders        
-        |   ├── Alopias      <- image files
-                ├──Alopias vulpinus  <- SSCg structure
+    ├── dataset                           <- root
+        ├── training_set   <- GSC structure <- training set folders        
+        |   ├── Alopias                     <- image files
+                ├──Alopias vulpinus           <- SSCg structure
                 ├──Alopias species 
         |   ├── Carcharhinus
         |   ├── Carcharias
         |  
-        ├── test_set              <- validation set folders
-        |   ├── Alopias      <- image files
-                ├──Alopias vulpinus  <- SSCg structure
+        ├── test_set              
+        |   ├── Alopias      
+                ├──Alopias vulpinus  
                 ├──Alopias species
         |   ├── Carcharhinus
         |   ├── Carcharias
@@ -63,6 +63,9 @@ pip install -r requirements.txt
 
 ## Results
 
+<p align="center">
+  <img src="cm_normLatest.pdf" alt="confusion matrix" width="600"/>
+</p>
 ![confusion matrix](cm_normLatest.pdf)
 
 ## Check out
