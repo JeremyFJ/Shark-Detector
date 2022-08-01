@@ -1,79 +1,87 @@
-# Shark Classification
-Composed of convolutional nueral networks, deep & transfer learning, VGG16 pre-trained model, Keras, and Tensorflow backend
+# Shark Detector (SD)
+<p align="center">
+  <img src="ODM_1.PNG" alt="SD mako" width="800"/>
+</p>
+We created a database of 53,345 shark images covering 219 species of sharks. The SD is a package of object-detection and image classification algorithms designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs). 
 
-# Shark Detection
-Composed of the Faster-RCNN model and trained on the Common Objects in Context (COCO) datasets
+<p align="center">
+  <img src="pipeline.PNG" alt="pipeline" width="600"/>
+</p>
 
-## Introduction
-Suitable shark conservation depends on well-informed population statuses. While there are adequate direct methods to retrieve such data from scientific surveys and fisheries monitoring, species-specific indices of population abundance coming from these sources are rare for most shark species. These information gaps can be filled with image-based biomonitoring and machine learning. To encourage image-based monitoring and alleviate manual validation, we trained a shark image classification model using convolutional neural networks with a VGG-16 architecture to learn shark features and automatically discriminate shark images. Training and testing images were sourced from social networks and virtual archives. We collected over 24,000 images spanning 224 shark species. The trained model classified 2,500 images per minute on a desktop computer with a graphics processing unit (GPU) and 64 gigabytes of RAM. The model achieved 91% accuracy. We provided a GitHub repository which allows the user to access the training dataset and use the model. As image and video analyses strive to dominate methods for observing sharks in nature, an automated classifier can drastically reduce the burden of manually identifying datasets. Furthermore, a general shark classification and detection approach is a strong foundation for a species-specific framework.
+## Models and Data
 
-In conjuncture with Instagram web scraping utilizing InstaCrawlR [3] and Instaloader [5] for post collection, this model can be used in a pipeline which maps inferred shark sightings according to locations mentioned in the post [1]. You can find this repository [here.](https://github.com/JeremyFJ/Instagram_sharkSighting)
+The SD is composed of a locating object-detector and two image classifiers bundled into the Shark Classifier (SC) architecture. The Shark Identifier (SI) is more tailored for big data mining, and so will not be used for video detection.
+1) Shark Locator (SL) -- object-detection
+2) Genus-specific classifier (GSC) -- image classifier (parent node)
+3) Species-specific classifier (SSCg) -- image classifier (child node of genus)
 
-![image_sample1.png](image_sample1.PNG)
+We developed the SC as a hierarchical classification framework for classifying the identified shark images taxonomically. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) would predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
 
-Image examples for the two classes: not-shark, and shark
+You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
 
-## Data
-You can download the image repository and saved model weights [here.](https://drive.google.com/drive/folders/1B3zvSgJWfWQmo6mFgJZa4A1uoXSc0lUm?usp=sharing](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs)
-
-The dataset structure is shown below
+The dataset structure of training the GSC and SSCg is shown below
 ```
-    ├── dataset                   <- root
-        ├── training_set          <- training set folders        
-        |   ├── not_shark      <- image files
-        |   ├── shark
+    ├── dataset                           <- root
+        ├── training_set   <- GSC structure <- training set folders        
+        |   ├── Alopias                     <- image files
+                ├──Alopias vulpinus           <- SSCg structure
+                ├──Alopias species 
+        |   ├── Carcharhinus
+        |   ├── Carcharias
         |  
-        ├── test_set              <- validation set folders
-        |   ├── not_shark      <- image files
-        |   ├── shark
+        ├── test_set              
+        |   ├── Alopias      
+                ├──Alopias vulpinus  
+                ├──Alopias species
+        |   ├── Carcharhinus
+        |   ├── Carcharias
 ``` 
 ## Code
-This model implements the Keras package with a Tensorflow backend entirely in Python. The pre-trained VGG16 is a CNN model built by Zisserman and Simonyan from the University of Oxford that achieves 92.7% accuracy from ImageNet with 14 million images and 1000 classes [4]. The final four layers are fully connected and explicitly written here after specifying `include_top=False`. The final layers are also frozen to better train the model to identify shark features. 
+This model implements the Keras package with a Tensorflow backend entirely in Python.  
 
 ### Requires
-- [Anaconda / Python 3.7.3](https://www.anaconda.com/products/individual)
-- [Tensorflow 2.2.0](https://www.tensorflow.org/)
-- [Keras 2.3.1](https://keras.io/)
-- [sklearn 0.21.2](https://scikit-learn.org/stable/)
-- [PIL 6.1.0](https://pillow.readthedocs.io/en/stable/)
+- [Python 3.8.10](https://www.python.org/downloads/)
+- [Tensorflow 2.9.1](https://www.tensorflow.org/)
+- [Keras 2.9.0](https://keras.io/)
+- [PIL 9.1.1](https://pillow.readthedocs.io/en/stable/)
+- [OpenCV 4.5.5.64](https://github.com/skvark/opencv-python)
+- [pandas 1.2.3](https://pandas.pydata.org)
+- [numpy 1.22.3](https://www.numpy.org)
+
+The SD works best with GPU acceleration 
+- CUDA version 11.0 
+- NVIDIA driver 450.51.05
+
+# Installation
+Follow these instructions to install the Shark Detector package: 
+1. 
+
 
 ## Run
-To train the model, run:
-```
-python main_train.py
-```
-Note -- Keep the image directory names static (or make changes to `img_loader.py`)
-- (1) This script will load images.
-- (2) New images can be added to not_shark/ and shark/ folders to increase the training and testing dataset.
-- (3) Once predictions are made on the test set, accuracy and training history is reported in addition to confusion matrix plots for each class.
+This repository currently instructs on how to detect and classify shark species from MP4 videos
 
-To classify images(s), run:
+See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
 ```
-python main_inference.py
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
-Note -- Add the images you want predicted to `model_predictor/dataset/test_set/shark/` 
-- (1) Training weights saved as `.h5` are loaded for predictions as well as preprocessed data saved as `.npy` files.
-- (2) You can adjust the threshold however you want. It is currently set to 0.90
-- (3) `class_prediction.csv` is produced and `move_file.py` can be run to identify shark and not-shark predictions.
+- Input your video into `video/`
+- change your video name in `video_SD.py`
+- Line 14 `vid = [your video name]`
+- make sure you have enough free memory  
+`python video_SD.py`
 
 ## Results
-
-![confusion_matrix](cm_norm_50.png)
+`spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
+`frames/` outputed shark detected frames that are listed in the spreadsheet. Frames are labeled with the video name and the amount of seconds passed 
 
 ## Check out
 Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
 - [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification)
-
-Web application `sharkPulse` designed to crowdsource shark images from around the world for monitoring shark populations 
-- [sharkPulse](http://sharkpulse.org/)
-
-## References
-- [1] Jenrette J, Liu ZY-C, Hastie T, Ferretti F. Data mining Instagram as a tool for tracking global shark populations (TBD). 2020.
-- [2] Liu ZY-C, Chamberlin AJ, Shome P, Jones IJ, Riveau G, Jouanard N, Ndione, Sokolow SH, De Leo GA. Identification of snails and parasites of medical importance via convolutional neural network: an application for human schistosomiasis. PLoS neglected tropical diseases. 2019.
-- [3] Schroeder J. InstaCrawlR. Crawl public Instagram data using R scripts without API access token. 2018. 
-- [4] Zisserman A, Simonyan K. Very Deep Convolutional Networks for Large-Scale Image Recognition. Published in arXiv. 2014.
-- [5] Alexander Graf and André Koch-Kramer. Instaloader. A tool to download pictures (or videos) along with their captions and other metadata from Instagram. 2016. Ver 4.5.5.
+- [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/) designed to crowdsource shark images from around the world and involve citizen scientists to validate sightings
+- [SeaQL](http://35.245.242.176/seaql/) Research Lab
 
 ## Contact
 - Data: jjeremy1@vt.edu
-- Model: jjeremy1@vt.edu, zacycliu@stanford.edu
+- Model: jjeremy1@vt.edu, zacycliu@stanford.edu, pchimote@vt.edu
