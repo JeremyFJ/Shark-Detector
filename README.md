@@ -1,9 +1,6 @@
-# Shark Detector
-Suitable shark conservation depends on well-informed population assessments. Direct methods such as scientific surveys and fisheries monitoring are adequate for defining population statuses, but species-specific indices of abundance and distribution coming from these sources are rare for most shark species. We can rapidly fill these information gaps by boosting media-based remote monitoring efforts with machine learning and automation.
+# Shark Detector (SD)
 
-We created a database of 53,345 shark images covering 219 species of sharks, and packaged object-detection and image classification models into a Shark Detector (SD) bundle. The SD recognizes and classifies sharks from videos and images using transfer learning and convolutional neural networks (CNNs). Our shark detection and classification pipeline is composed of several steps and three main components: 1 - an object-detection model called the Shark Locator (SL), which locates one or several shark subjects in images and draws bounding boxes around them; 2 - a binary sorting model called Shark Identifier (SI) which sorts images of sharks from a pool of heterogeneous images; and 3 - multiclass models called Shark Classifiers (SCs) which classify shark images to the genus and species levels.
-
-We applied the SD to common data-generation approaches of sharks: collecting occurrence records from photographs taken by the public or citizen scientists, processing baited remote camera footage and online videos, and data-mining Instagram. We examined the accuracy of each model and tested genus and species prediction correctness as a result of training data quantity. The Shark Detector can classify 47 species pertaining to 26 genera. It sorted heterogeneous datasets of images sourced from Instagram with 91% accuracy and classified species with 70% accuracy. It located sharks in baited remote footage and YouTube videos with 89% accuracy, and classified located subjects to the species level with 69% accuracy.
+We created a database of 53,345 shark images covering 219 species of sharks. The SD is a package of object-detection and image classification algorithms designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs). 
 
 <p align="center">
   <img src="pipeline.PNG" alt="pipeline" width="600"/>
@@ -11,6 +8,15 @@ We applied the SD to common data-generation approaches of sharks: collecting occ
 
 ## Models and Data
 
+SD models are derived from 3 main packages:
+```
+1) Shark Locator (SL) -- object-detection
+```
+Shark Classifier (SC):
+```
+2) Genus-specific classifier (GSC) -- image classifier (parent node)
+3) Species-specific classifier (SSCg) -- image classifier (child node of specific genus)
+```
 We developed the SC as a hierarchical classification framework for classifying the identified shark images taxonomically. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) would predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
 
 You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
@@ -47,6 +53,11 @@ This model implements the Keras package with a Tensorflow backend entirely in Py
 The SD works best with GPU acceleration 
 - CUDA version 11.0 
 - NVIDIA driver 450.51.05
+
+# Installation
+Follow these instructions to install the Shark Detector package 
+1. 
+
 
 ## Run
 This repository currently instructs on how to detect and classify shark species from MP4 videos
