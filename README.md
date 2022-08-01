@@ -1,8 +1,8 @@
-# Shark Detector (SD)
+# Shark Detector
 <p align="center">
   <img src="ODM_1.PNG" alt="SD mako" width="800"/>
 </p>
-We created a database of 53,345 shark images covering 219 species of sharks. The SD is a package of object-detection and image classification algorithms designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs).
+We created a database of 53,345 shark images covering 219 species of sharks. The Shark Detector (SD) is a package of object-detection and image classification algorithms designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs).
 <p>
 <p align="center">
   <img src="pipeline.PNG" alt="pipeline" width="600"/>
