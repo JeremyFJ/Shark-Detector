@@ -54,7 +54,7 @@ The SD works best with GPU acceleration
 
 # Installation
 Follow these instructions to install the Shark Detector package: 
-## Mac / Linux
+### Mac / Linux
 1. CLONE the repository and create your Python environment 
 ```
 git clone https://github.com/JeremyFJ/Shark-Detector.git
@@ -71,7 +71,7 @@ zip -r -X models.zip models
 ```
 4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
 
-## Windows
+### Windows
 
 
 ## Run
