@@ -1,3 +1,6 @@
+#-------------------------------------------------------------------------------------------------------
+# Load libraries
+#-------------------------------------------------------------------------------------------------------
 import os
 from keras.models import load_model
 import pickle
@@ -16,11 +19,13 @@ gsc_labels = sorted(pickle.loads(open(gsc_lab + "GSC.pickle", "rb").read()))
 single_spec = ["Carcharias_taurus", "Carcharodon_carcharias", "Cetorhinus_maximus", 
     "Galeocerdo_cuvier", "Galeorhinus_galeus", "Galeus_melastomus", "Prionace_glauca", 
     "Rhincodon_typus", "Triaenodon_obesus"]
-
+#-------------------------------------------------------------------------------------------------------
+# Loading classification models function
+#-------------------------------------------------------------------------------------------------------
 def load_SC(taxonomy="genus"):
     if taxonomy=="genus":
         model = load_model("models/GSC_mod/")
-        print("GSC Loaded")
+        print("GSC loaded")
     elif taxonomy=="species":
         model = dict()
         for mod in os.listdir(spec_models):
@@ -30,7 +35,5 @@ def load_SC(taxonomy="genus"):
             # create dictionary of models and labels
             model[gen_name] = [load_model(spec_models + mod),classes] 
             print("\r" + gen_name + "--loaded")
-        print("SSCg Loaded")
+        print("SSCg loaded\n")
     return model
-
-

@@ -1,6 +1,13 @@
+#-------------------------------------------------------------------------------------------------------
+# Load libraries
+#-------------------------------------------------------------------------------------------------------
 import numpy as np
 import tensorflow as tf
+#-------------------------------------------------------------------------------------------------------
+# Object-detection functions
+#-------------------------------------------------------------------------------------------------------
 
+# Load the Shark Locator
 def load_SL():
     # Load the Shark Locator 
     PATH_TO_CKPT = "models/Locator_model.pb"
@@ -14,6 +21,7 @@ def load_SL():
     print("Shark Locator loaded")
     return detection_graph
 
+# Locate shark from image, and draw a box for a new image
 def detect_objects_crop_video(image_np, sess, detection_graph, thresholdLoc=0.9989):
     # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
     image_np_expanded = np.expand_dims(image_np, axis=0)
@@ -48,6 +56,7 @@ def detect_objects_crop_video(image_np, sess, detection_graph, thresholdLoc=0.99
         img_data = str("none")
     return img_data
 
+# format image
 def load_image_into_numpy_array(image):
   (im_width, im_height) = image.size
   return np.array(image.getdata()).reshape(
