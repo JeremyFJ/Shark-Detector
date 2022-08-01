@@ -8,11 +8,10 @@ We created a database of 53,345 shark images covering 219 species of sharks. The
 
 ## Models and Data
 
-SD models are derived from 3 main packages:
+The SD is composed of a locating object-detector and two image classifiers bundled into the Shark Classifier (SC) architecture. The Shark Identifier (SI) is more tailored for big data mining, and so will not be used video detection.
 1) Shark Locator (SL) -- object-detection
-Shark Classifier (SC):
 2) Genus-specific classifier (GSC) -- image classifier (parent node)
-3) Species-specific classifier (SSCg) -- image classifier (child node of specific genus)
+3) Species-specific classifier (SSCg) -- image classifier (child node of genus)
 
 We developed the SC as a hierarchical classification framework for classifying the identified shark images taxonomically. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) would predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
 
