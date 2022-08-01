@@ -10,7 +10,7 @@ import pickle
 spec_models = "models/species/"
 spec_labels = "label_list/labels_py/"
 gsc_lab = "label_list/"
-os.chdir("../run/")
+os.chdir("../Shark-Detector/")
 
 # for f in os.listdir('frames/'):
 #    os.remove('frames/' + f)
