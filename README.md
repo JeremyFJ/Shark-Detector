@@ -9,14 +9,11 @@ We created a database of 53,345 shark images covering 219 species of sharks. The
 ## Models and Data
 
 SD models are derived from 3 main packages:
-```
 1) Shark Locator (SL) -- object-detection
-```
 Shark Classifier (SC):
-```
 2) Genus-specific classifier (GSC) -- image classifier (parent node)
 3) Species-specific classifier (SSCg) -- image classifier (child node of specific genus)
-```
+
 We developed the SC as a hierarchical classification framework for classifying the identified shark images taxonomically. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) would predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
 
 You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
@@ -55,7 +52,7 @@ The SD works best with GPU acceleration
 - NVIDIA driver 450.51.05
 
 # Installation
-Follow these instructions to install the Shark Detector package 
+Follow these instructions to install the Shark Detector package: 
 1. 
 
 
@@ -83,11 +80,8 @@ pip install -r requirements.txt
 ## Check out
 Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
 - [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification)
-
-`Validation Monitor -- sharkPulse` designed to crowdsource shark images from around the world and involve citizen scientists to validate sightings
-Research Lab `SeaQL website` 
-- [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/)
-- [SeaQL](http://35.245.242.176/seaql/)
+- [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/) designed to crowdsource shark images from around the world and involve citizen scientists to validate sightings
+- [SeaQL](http://35.245.242.176/seaql/) Research Lab
 
 ## Contact
 - Data: jjeremy1@vt.edu
