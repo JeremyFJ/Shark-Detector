@@ -63,7 +63,7 @@ virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-2. DOWNLOAD a zipped folder **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~1.5GB)
+2. DOWNLOAD a zipped folder **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
 3. RUN:
 ```
 cd ~/Downloads
