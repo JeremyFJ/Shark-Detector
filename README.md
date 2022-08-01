@@ -79,11 +79,11 @@ This repository currently instructs on how to detect and classify shark species 
 
 See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
 
-- Input your video into `Shark-Detector/media/video/`
-- navigate to your repository directory `Shark-Detector/`
-- To process one video:
+- Move your video to `Shark-Detector/media/video/`
+- Navigate to your repository directory `Shark-Detector/`
+- Process one video:
 `python video_SD.py [video name]`
-- To process all videos in folder:
+- Process all videos in folder:
 `python video_SD.py ALL`
 
 ## Results
