@@ -91,9 +91,8 @@ See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classif
 `frames/` outputed shark detected frames that are listed in the spreadsheet. Frames are labeled with the video name and the amount of seconds passed 
 
 ## Check out
-Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
-- [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification)
-- [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/) designed to crowdsource shark images from around the world and involve citizen scientists to validate sightings
+- [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification) Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
+- [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/) Crowdsource shark images from around the world and involve citizen scientists to validate sightings
 - [SeaQL](http://35.245.242.176/seaql/) Research Lab
 
 ## Contact
