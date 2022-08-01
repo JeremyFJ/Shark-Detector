@@ -1,5 +1,7 @@
 # Shark Detector (SD)
-
+<p align="center">
+  <img src="ODM_1.PNG" alt="SD mako" width="800"/>
+</p>
 We created a database of 53,345 shark images covering 219 species of sharks. The SD is a package of object-detection and image classification algorithms designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs). 
 
 <p align="center">
@@ -72,9 +74,7 @@ pip install -r requirements.txt
 
 ## Results
 `spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
-<p align="center">
-  <img src="ODM_1.PNG" alt="SD mako" width="800"/>
-</p>
+`frames/` outputed shark detected frames that are listed in the spreadsheet. Frames are labeled with the video name and the amount of seconds passed 
 
 ## Check out
 Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
