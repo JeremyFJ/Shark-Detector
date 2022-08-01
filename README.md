@@ -54,23 +54,36 @@ The SD works best with GPU acceleration
 
 # Installation
 Follow these instructions to install the Shark Detector package: 
-1. 
+## Mac / Linux
+1. CLONE the repository and create your Python environment 
+```
+git clone https://github.com/JeremyFJ/Shark-Detector.git
+cd Shark-Detector
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+2. DOWNLOAD a zipped folder **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~1.5GB)
+3. RUN:
+```
+cd ~/Downloads
+zip -r -X models.zip models
+```
+4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
+
+## Windows
 
 
 ## Run
 This repository currently instructs on how to detect and classify shark species from MP4 videos
 
 See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
-```
-virtualenv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-- Input your video into `video/`
-- change your video name in `video_SD.py`
-- Line 14 `vid = [your video name]`
-- make sure you have enough free memory  
-`python video_SD.py`
+
+- Input your video into `Shark-Detector/media/video/`
+- To process one video:
+`python video_SD.py [video name]`
+- To process all videos in folder:
+`python video_SD.py ALL`
 
 ## Results
 `spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
