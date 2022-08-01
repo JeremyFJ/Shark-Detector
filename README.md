@@ -8,7 +8,7 @@ We created a database of 53,345 shark images covering 219 species of sharks. The
 
 ## Models and Data
 
-The SD is composed of a locating object-detector and two image classifiers bundled into the Shark Classifier (SC) architecture. The Shark Identifier (SI) is more tailored for big data mining, and so will not be used video detection.
+The SD is composed of a locating object-detector and two image classifiers bundled into the Shark Classifier (SC) architecture. The Shark Identifier (SI) is more tailored for big data mining, and so will not be used for video detection.
 1) Shark Locator (SL) -- object-detection
 2) Genus-specific classifier (GSC) -- image classifier (parent node)
 3) Species-specific classifier (SSCg) -- image classifier (child node of genus)
