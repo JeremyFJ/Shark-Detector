@@ -64,12 +64,12 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 2. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
-3. RUN:
+3. EXTRACT tar file
 ```
 cd ~/Downloads
 mkdir -p models && tar -xvf models.tar.gz -C models
 ```
-4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
+4. **IMPORTANT** MOVE your **models/** directory to your cloned repository **Shark-Detector/**
 
 ### Windows
 
