@@ -67,7 +67,7 @@ pip install -r requirements.txt
 3. RUN:
 ```
 cd ~/Downloads
-zip -r -X models.zip models
+mkdir -p models && tar -xvf models.tar.gz -C models
 ```
 4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
 
