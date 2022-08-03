@@ -28,6 +28,7 @@ def usage():
 try:
     os.remove("media/video/.gitignore")
     os.remove("media/processed_video/.gitignore")
+    os.remove("frames/.gitignore")
 except FileNotFoundError:
     pass
     
