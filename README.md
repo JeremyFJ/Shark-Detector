@@ -2,7 +2,7 @@
 <p align="center">
   <img src="ODM_1.PNG" alt="SD mako" width="800"/>
 </p>
-We created a database of 53,345 shark images covering 219 species of sharks. The Shark Detector (SD) is a package of object-detection and image classification algorithms designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs).
+We created a database of 53,345 shark images covering 219 species of sharks. The Shark Detector (SD) is an open source package designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs).
 <p>
 <p align="center">
   <img src="pipeline.PNG" alt="pipeline" width="600"/>
@@ -10,12 +10,12 @@ We created a database of 53,345 shark images covering 219 species of sharks. The
 
 ## Models and Data
 
-The SD is composed of a locating object-detector and two image classifiers bundled into the Shark Classifier (SC) architecture. The Shark Identifier (SI) is more tailored for big data mining, and so will not be used for video detection.
+The SD is composed of an object-detection model, Shark Locator (SL), and multiple image classifiers packaged into the Shark Classifier (SC). The Shark Identifier (SI) is a binary classification scheme which is more tailored to big data mining.
 1) Shark Locator (SL) -- object-detection
 2) Genus-specific classifier (GSC) -- image classifier (parent node)
 3) Species-specific classifier (SSCg) -- image classifier (child node of genus)
 
-We developed the SC as a hierarchical classification framework for classifying the identified shark images taxonomically. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) would predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
+We developed the SC as a hierarchical framework for taxonomically classifying located shark images. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) will predict the most likely species. For the GSC, we trained 36,722 images across 26 genus classes. We trained 18 SSCg models with 19,243 images. The SC and SI models are continusously trained as new images are ingested.
 
 You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
 
@@ -53,7 +53,7 @@ The SD works best with GPU acceleration
 - NVIDIA driver 450.51.05
 
 # Installation
-Follow these instructions to install the Shark Detector package: 
+Follow these instructions to install and run the Shark Detector application: 
 ### Mac / Linux
 1. CLONE the repository and create your Python environment 
 ```
