@@ -25,7 +25,12 @@ def usage():
     print("To run the Shark Detector, add your video(s) to the 'media/video/' directory")
     print("Process 1 video: python video_SD.py bruv1.mp4")
     print("Process all videos: python video_SD.py ALL\n")
-
+try:
+    os.remove("media/video/.gitignore")
+    os.remove("media/processed_video/.gitignore")
+except FileNotFoundError:
+    pass
+    
 if __name__ == "__main__":
     if sys.argv[1].lower() == "all":
         video = os.listdir(vid_dir)
