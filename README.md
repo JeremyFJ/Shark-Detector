@@ -70,7 +70,10 @@ cd ~/Downloads
 tar -xvf models.tar.gz
 ```
 4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
-5. Done!
+5. Run the SD on a test video 
+```
+python video_SD.py test.mp4
+```
 
 ### Windows
 
