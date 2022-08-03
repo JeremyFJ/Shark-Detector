@@ -64,9 +64,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 2. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
-3. EXTRACT tar file
+3. LOCATE (probably in your Downloads folder) and EXTRACT tar file
 ```
-cd ~/Downloads
 tar -xvf models.tar.gz
 ```
 4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
@@ -74,9 +73,10 @@ tar -xvf models.tar.gz
 ```
 python video_SD.py test.mp4
 ```
+6. If there are no errors, check your `frames/` and `spreadsheets/` for the detection output
+NOTE: videos that have been processed are moved from `Shark-Detector/media/video/` to `Shark-Detector/media/processed_video/`
 
 ### Windows
-
 
 ## Run
 This repository currently instructs on how to detect and classify shark species from MP4 videos
@@ -89,6 +89,7 @@ See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classif
 `python video_SD.py [video name]`
 - Process all videos in folder:
 `python video_SD.py ALL`
+
 
 ## Results
 `spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
