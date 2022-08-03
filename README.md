@@ -76,7 +76,7 @@ python video_SD.py test.mp4
 6. If there are no errors, check your `frames/` and `spreadsheets/` for the detection output
 7. NOTE: videos that have been processed are moved from `Shark-Detector/media/video/` to `Shark-Detector/media/processed_video/`
 
-### Windows
+### Windows (under maintenance)
 
 ## Run
 This repository currently instructs on how to detect and classify shark species from MP4 videos
