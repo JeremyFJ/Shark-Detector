@@ -69,7 +69,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
-5. Run the SD on a test video 
+5. Run the SD on a test video (it may take ~10 minutes to first load the model)
 ```
 python video_SD.py test.mp4
 ```
