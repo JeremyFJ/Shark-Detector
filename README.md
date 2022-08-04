@@ -55,18 +55,18 @@ The SD works best with GPU acceleration
 # Installation
 Follow these instructions to install and run the Shark Detector application: 
 ### Mac / Linux
-1. CLONE the repository and create your Python environment 
+1. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
+2. LOCATE (probably in your Downloads folder) and EXTRACT tar file
+```
+tar -xvf models.tar.gz
+```
+3. CLONE the repository and create your Python environment 
 ```
 git clone https://github.com/JeremyFJ/Shark-Detector.git
 cd Shark-Detector
 virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-```
-2. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
-3. LOCATE (probably in your Downloads folder) and EXTRACT tar file
-```
-tar -xvf models.tar.gz
 ```
 4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
 5. Run the SD on a test video 
