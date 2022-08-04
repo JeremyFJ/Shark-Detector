@@ -76,7 +76,7 @@ python video_SD.py test.mp4
 6. If there are no errors, check your `frames/` and `spreadsheets/` for the detection output
 7. NOTE: videos that have been processed are moved from `Shark-Detector/media/video/` to `Shark-Detector/media/processed_video/` </p>
 Install guide [full video](https://youtu.be/x0l1PZdMWpc)</p>
-![SDinstall](https://user-images.githubusercontent.com/47799977/182922506-08c5390e-82f8-48e2-9255-b9ef545bbdf4.gif)\
+![SDinstall](https://user-images.githubusercontent.com/47799977/182922506-08c5390e-82f8-48e2-9255-b9ef545bbdf4.gif)
 
 ### Windows (under maintenance)
 
