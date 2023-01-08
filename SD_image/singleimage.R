@@ -8,14 +8,14 @@ single_spec = c("Carcharias_taurus", "Carcharodon_carcharias", "Cetorhinus_maxim
     "Rhincodon_typus", "Triaenodon_obesus")
 '%!in%' <- function(x,y)!('%in%'(x,y))
 addMod = function(mod, dict) { # creates model dictionary
-  dict[[mod]] <- load_model_tf(paste0("/home/csteam/SDv2/species/models/", mod, "_mod"))
+  dict[[mod]] <- load_model_tf(paste0("./models/", mod, "_mod"))
   return(dict)
 }
 load("./labels/GSC_label.R")
 
-img_path = paste0("images/",list.files("images/"))
+img_path = paste0("./images/",list.files("./images/"))
 mod_list <<- hash() # create dictionary
-mod_list[['Genus']] <- load_model_tf("models/GSC_mod") # load GSC
+mod_list[['Genus']] <- load_model_tf("./models/GSC_mod") # load GSC
 
 for (i in img_path) {
 im <- image_load(img_path, target_size = c(224,224))
