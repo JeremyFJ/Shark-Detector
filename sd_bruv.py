@@ -4,7 +4,6 @@ import tensorflow as tf
 import cv2 as cv2
 import shutil
 import pickle
-# from keras.utils import img_to_array, load_img
 from keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 import visualization_utils as vis_util
@@ -59,7 +58,7 @@ def SC_predict(mod, img_1, labels):
     mod_pred = mod.predict(img_1)
     mod_pred_dict = dict(zip(labels, mod_pred.tolist()[0]))
     mod_top = sorted(mod_pred_dict, key=mod_pred_dict.get, reverse=True)[:1][0]
-    # print(mod_pred_dict)
+
     print(mod_top)
     return mod_top
 
@@ -69,8 +68,8 @@ def open_vid(videofile):
     except FileNotFoundError:
         print('video not found')
         vidcap='none'
-    s=vidcap.get(cv2.CAP_PROP_FPS)
-    # print("look here" + str(s))
+    fps=vidcap.get(cv2.CAP_PROP_FPS)
+    print("video fps: " + str(fps))
     return vidcap
 
 def retrieve_frame(vidcap, count, frame_cap):
@@ -142,6 +141,7 @@ ret = True
 count = 1
 interval_frame = 1
 frame_cap = 30 # grabs 1 frame per second
+# for large videos
 # mb_size = (os.path.getsize(vid_dir+vid)) * 10 ** -6 
 # if mb_size>250: # checks if video is larger than 250mb
 #     frame_cap = 100
