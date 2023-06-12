@@ -11,10 +11,7 @@ import numpy as np
 import os
 import tensorflow as tf
 import cv2 as cv2
-import shutil
 import pickle
-import math
-import sys
 import pandas as pd
 from keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
@@ -102,7 +99,8 @@ def detect(image_np, threshold):
         cropped_image = tf.image.crop_to_bounding_box(image_np, int(yminn), int(xminn), int(ymaxx - yminn), int(xmaxx - xminn))
         img = cropped_image.numpy()
         random_image = Image.fromarray(img)
-    return image_np, conf, random_image
+        txtloc = (int(xmaxx)-int(0.5*(xmaxx-xminn)), int(yminn)-20)
+    return image_np, conf, random_image, txtloc
 ##############################################################################################
 # Choose your directory where the images are stored, or load your images into './www/images/' 
 # This script will iterate through each image in the specified directory 
@@ -118,8 +116,8 @@ for img in os.listdir(img_dir): # iterate through each image in img_dir
     ext = img.split(".")[1]
     detimg = "./detimages/" + img_name + "_sd." + ext
     img = cv2.imread(img_dir + img)
-    thresh = 0.65 # threshold for SL to detect a shark -- adjust this based on sensitivity
-    frame, conf, cropped_image = detect(img, thresh)
+    thresh = 0.45 # threshold for SL to detect a shark -- adjust this based on sensitivity
+    frame, conf, cropped_image, txtloc = detect(img, thresh)
     if conf>thresh:
         img_1 = img_to_classify(cropped_image, (224,224), 1) # resize image to model specs
         gen_top = SC_predict(gsc, img_1, gsc_labels) # classify genus
@@ -133,7 +131,7 @@ for img in os.listdir(img_dir): # iterate through each image in img_dir
             frame_df = pd.DataFrame([["img_name", gen_top, "", conf]], 
                     columns=list(dat.columns))
         # Write classification to image frame and sreadsheet
-        frame = cv2.putText(frame, mod_top, (50,50), 
+        frame = cv2.putText(frame, mod_top, txtloc, 
                 cv2.FONT_HERSHEY_SIMPLEX, 1, 
                 (57,255,20), 2, cv2.LINE_AA, False)
         dat = pd.concat([frame_df, dat])

@@ -129,7 +129,8 @@ def detect(image_np, threshold):
         cropped_image = tf.image.crop_to_bounding_box(image_np, int(yminn), int(xminn), int(ymaxx - yminn), int(xmaxx - xminn))
         img = cropped_image.numpy()
         random_image = Image.fromarray(img)
-    return image_np, conf, random_image
+        txtloc = (int(xmaxx)-int(0.5*(xmaxx-xminn)), int(yminn)-20)
+    return image_np, conf, random_image, txtloc
 ##############################################################################################
 # Choose your directory where the BRUVs are stored, or load your videos into './www/video/' 
 # This script will iterate through each video in the specified directory 
@@ -189,7 +190,7 @@ for vid in os.listdir(vid_dir): # iterate through each video in vid_dir
                     frame_df = pd.DataFrame([[video_name, "frame%d"%count, time, gen_top, mod_top, conf]], 
                                 columns=list(dat.columns))
                 # Write classification to video frame and sreadsheet
-                frame = cv2.putText(frame, mod_top, (50,50), 
+                frame = cv2.putText(frame, mod_top, txtloc, 
                         cv2.FONT_HERSHEY_SIMPLEX, 1, 
                         (57,255,20), 2, cv2.LINE_AA, False)
                 dat = pd.concat([frame_df, dat])

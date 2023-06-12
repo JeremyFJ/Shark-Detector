@@ -1,6 +1,6 @@
 # Shark Detector v2
 <p align="center">
-  <img src="ODM_1.png" alt="SD mako" width="800"/>
+  <img src="mako25.jpg" alt="SD mako" width="800"/>
 </p>
 We created a database of over 70,000 shark images covering 219 species of sharks. The Shark Detector (SD) is an open source package designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs).
 <p>
@@ -41,10 +41,10 @@ This model implements the Keras package with a Tensorflow backend entirely in Py
 
 ### Requires
 - [Python 3.8.10](https://www.python.org/downloads/)
-- [Tensorflow 2.9.1](https://www.tensorflow.org/)
+- [Tensorflow 2.9.2](https://www.tensorflow.org/)
 - [Keras 2.9.0](https://keras.io/)
 - [PIL 9.1.1](https://pillow.readthedocs.io/en/stable/)
-- [OpenCV 4.5.5.64](https://github.com/skvark/opencv-python)
+- [OpenCV 4.7.0.72](https://github.com/skvark/opencv-python)
 - [pandas 1.2.3](https://pandas.pydata.org)
 - [numpy 1.22.3](https://www.numpy.org)
 
@@ -91,7 +91,6 @@ See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classif
 `python video_SD.py [video name]`
 - Process all videos in folder:
 `python video_SD.py ALL`
-
 
 ## Results
 `spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
