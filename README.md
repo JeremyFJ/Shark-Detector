@@ -1,6 +1,6 @@
 # Shark Detector v2
 <p align="center">
-  <img src="mako25_sd.jpg" alt="SD mako" width="800"/>
+  <img src="mako24_sd.jpg" alt="SD mako" width="800"/>
 </p>
 We created a database of over 70,000 shark images covering 219 species of sharks. The Shark Detector (SD) is an open source package designed to identify sharks from visual media and classify 47 species with 70% accuracy using transfer learning and convolutional neural networks (CNNs).
 <p>
