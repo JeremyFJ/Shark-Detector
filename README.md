@@ -55,12 +55,7 @@ The SD works best with GPU acceleration
 # Installation
 Follow these instructions to install and run the Shark Detector application: 
 ### Mac / Linux
-1. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
-2. LOCATE (probably in your Downloads folder) and EXTRACT tar file
-```
-tar -xvf models.tar.gz
-```
-3. CLONE the repository and create your Python environment 
+1. CLONE the repository and create your Python environment 
 ```
 git clone https://github.com/JeremyFJ/Shark-Detector.git
 cd Shark-Detector
@@ -68,38 +63,40 @@ virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-4. MOVE your **models/** directory to your cloned repository **Shark-Detector/**
-5. Run the SD on a test video (it may take ~10 minutes to first load the model)
+2. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
+3. EXTRACT tar file
 ```
-python video_SD.py test.mp4
+tar -xvf models.tar.gz
 ```
-6. If there are no errors, check your `frames/` and `spreadsheets/` for the detection output
-7. NOTE: videos that have been processed are moved from `Shark-Detector/media/video/` to `Shark-Detector/media/processed_video/` </p>
+4. MOVE your **models** to your cloned repository folder **models/** 
+5. Run the SD on a test video 
+```
+python sd_bruv.py
+```
+6. Detection frames to `frames/` and spreadsheet to `data/`
+
 Install guide [full video](https://youtu.be/x0l1PZdMWpc)</p>
 ![SDinstall](https://user-images.githubusercontent.com/47799977/182922506-08c5390e-82f8-48e2-9255-b9ef545bbdf4.gif)
 
-### Windows (under maintenance)
 
 ## Run
-This repository currently instructs on how to detect and classify shark species from MP4 videos
+This repository currently instructs on how to detect and classify shark species from videos and images
 
 See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
 
-- Move your video to `Shark-Detector/media/video/`
-- Navigate to your repository directory `Shark-Detector/`
-- Process one video:
-`python video_SD.py [video name]`
-- Process all videos in folder:
-`python video_SD.py ALL`
+- `sd_img.py` detects and classifies sharks from a batch of images. Add your images to `www/images/`
+- `sd_bruv.py` detects and classifies sharks from videos (typically baited remote underwater videos, however all videos suspected to contain shark subjects can be processed). Add your videos to `www/videos` or change the code to specify a directory and if to process one video or a batch (default is batch processing). 
 
 ## Results
-`spreadsheets/[video name].csv` shows a csv file of all frames extracted and sharks classified
-`frames/` outputed shark detected frames that are listed in the spreadsheet. Frames are labeled with the video name and the amount of seconds passed 
+A spreadsheet is saved to `data/` for each video or a batch of images
+
+When processing videos, positive detections are stored in `frames/`. When processing image batches, positive detections are saved to `detimages/`. 
 
 ## Check out
 - [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification) Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
 - [Validation Monitor](http://sharkpulse.cnre.vt.edu/can-you-recognize/) Crowdsource shark images from around the world and involve citizen scientists to validate sightings
 - [SeaQL](http://35.245.242.176/seaql/) Research Lab
+- [SDapp](sp2.cs.vt.edu:8000) Gradio web application for the GSC currently
 
 ## Contact
 - Data: jjeremy1@vt.edu
