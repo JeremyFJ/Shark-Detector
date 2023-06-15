@@ -77,7 +77,7 @@ This repository currently instructs on how to detect and classify shark species 
 See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classify single images
 
 - `sd_img.py` detects and classifies sharks from a batch of images. Add your images to `www/images/`
-- `sd_bruv.py` detects and classifies sharks from videos (typically baited remote underwater videos, however all videos suspected to contain shark subjects can be processed). Add your videos to `www/videos` or change the code to specify a directory and if to process one video or a batch (default is batch processing). 
+- `sd_bruv.py` detects and classifies sharks from videos (typically baited remote underwater videos, however all videos suspected to contain shark subjects can be processed). Add your videos to `www/videos/` or change the code to specify a directory and if to process one video or a batch (default is batch processing). 
 
 ## Results
 A spreadsheet is saved to `data/` for each video or a batch of images
@@ -93,4 +93,3 @@ When processing videos, positive detections are stored in `frames/`. When proces
 ## Contact
 - Data: jjeremy1@vt.edu
 - Model: jjeremy1@vt.edu, zacycliu@stanford.edu, pchimote@vt.edu
-
