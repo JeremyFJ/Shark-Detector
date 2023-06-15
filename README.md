@@ -82,7 +82,7 @@ See [sharkPulse](http://sharkpulse.cnre.vt.edu/can-you-find-a-shark/) to classif
 ## Results
 A spreadsheet is saved to `data/` for each video or a batch of images
 
-When processing videos, positive detections are stored in `frames/`. When processing image batches, positive detections are saved to `detimages/`. 
+When processing videos, positive detections are stored in `detvid/`. When processing image batches, positive detections are saved to `detimages/`. 
 
 ## Check out
 - [Schisto-parasite-classification](https://github.com/deleo-lab/schisto-parasite-classification) Based on a multi-classification model trained to identify vector parasites of Schistosomiasis
