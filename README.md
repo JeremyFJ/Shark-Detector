@@ -17,7 +17,7 @@ The SD is composed of an object-detection model, Shark Locator (SL), and multipl
 
 We developed the SC as a hierarchical framework for taxonomically classifying located shark images. We trained one genus-specific model and a series of local species-specific models - one for each genus. The SC ingests the filtered shark images and classifies them at the genus level with the genus-specific classifier (GSC). Then, depending on the genus, a species-specific classifier (SSCg) will predict the most likely species. For the GSC, we trained 45,101 images across 26 genus classes. We trained 18 SSCg models with 24,391 images. The SC and SI models are continusously trained as new images are ingested.
 
-You can download the saved model weights [here.](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing)
+You can download the saved model weights [here.](https://www.kaggle.com/datasets/jeremyjer/sharkdetector)
 
 The dataset structure of training the GSC and SSCg is shown below
 ```
@@ -63,21 +63,13 @@ virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
-2. DOWNLOAD the tar file **models** from [models](https://drive.google.com/drive/folders/1KdVkSn4avPCa4iGjLp6Lf8IVSEAURQqs?usp=sharing) (~3GB)
-3. EXTRACT tar file
-```
-tar -xvf models.tar.gz
-```
-4. MOVE your **models** to your cloned repository folder **models/** 
-5. Run the SD on a test video 
+2. DOWNLOAD the file **models** from [models](https://www.kaggle.com/datasets/jeremyjer/sharkdetector) (~5GB)
+3. EXTRACT and MOVE your **models** to your cloned repository
+4. Run the SD on a test video 
 ```
 python sd_bruv.py
 ```
-6. Detection frames to `frames/` and spreadsheet to `data/`
-
-Install guide [full video](https://youtu.be/x0l1PZdMWpc)</p>
-![SDinstall](https://user-images.githubusercontent.com/47799977/182922506-08c5390e-82f8-48e2-9255-b9ef545bbdf4.gif)
-
+5. Detection frames to `detvid/` and spreadsheet to `data/`
 
 ## Run
 This repository currently instructs on how to detect and classify shark species from videos and images
