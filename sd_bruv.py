@@ -22,12 +22,6 @@ import visualization_utils as vis_util
 from PIL import Image
 ##############################################################################################
 # Old frames will be erased when running this script -- SAVE YOUR DETECTIONS
-try:
-    shutil.rmtree("./frames/pos/")
-except (FileNotFoundError, FileExistsError):
-    pass
-os.makedirs("./frames/pos")
-
 data = {'video':[], 'img_name':[], 'time_s':[], 'genus': [], 'species': [], 
         'detection_threshold':[]}
 dat = pd.DataFrame(data)
@@ -105,6 +99,7 @@ def detect(image_np, threshold):
     scores = detections['detection_scores']
     conf = scores[0]
     random_image = 'none'
+    txtloc = 'none'
     # Each box represents a part of the image where a particular object was detected.
     boxes = detections['detection_boxes']
     classes = detections['detection_classes'].astype(np.int64)
@@ -147,6 +142,12 @@ for vid in os.listdir(vid_dir): # iterate through each video in vid_dir
     video_name = vid.split(".")[0]
     # Playing video from file
     cap, fps = open_vid(vid)
+    frame_path = "./detvid/"+video_name+"_detections/"
+    try:
+        shutil.rmtree(frame_path)
+    except (FileNotFoundError, FileExistsError):
+        pass
+    os.makedirs(frame_path)
     # Default resolutions of the frame are obtained.The default resolutions are system dependent.
     # We convert the resolutions from float to integer.
     # Define the codec and create VideoWriter object - this to write and save a detection box video
@@ -175,9 +176,9 @@ for vid in os.listdir(vid_dir): # iterate through each video in vid_dir
         time = int(math.floor((count*(frame_cap/fps))/fps))
         if ret == True:
             thresh = 0.80 # threshold for SL to detect a shark -- adjust this based on sensitivity
-            frame, conf, cropped_image = detect(frame, thresh)
+            frame, conf, cropped_image, txtloc = detect(frame, thresh)
             if conf>thresh:
-                name = "frames/pos/frame%d.jpg"%count
+                name = frame_path + "frame%d.jpg"%count
                 img_1 = img_to_classify(cropped_image, (224,224), 1) # resize image to model specs
                 gen_top = SC_predict(gsc, img_1, gsc_labels) # classify genus
                 mod_top = gen_top
@@ -191,8 +192,8 @@ for vid in os.listdir(vid_dir): # iterate through each video in vid_dir
                                 columns=list(dat.columns))
                 # Write classification to video frame and sreadsheet
                 frame = cv2.putText(frame, mod_top, txtloc, 
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, 
-                        (57,255,20), 2, cv2.LINE_AA, False)
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.8, 
+                        (57,255,20), 3, cv2.LINE_AA, False)
                 dat = pd.concat([frame_df, dat])
                 cv2.imwrite(name, frame)
                 cv2.imwrite("live.jpg", retrieve_frame(cap, count, frame_cap)[1]) # view unaltered frames

@@ -75,6 +75,7 @@ def detect(image_np, threshold):
     scores = detections['detection_scores']
     conf = scores[0]
     random_image = 'none'
+    txtloc = 'none'
     # Each box represents a part of the image where a particular object was detected.
     boxes = detections['detection_boxes']
     classes = detections['detection_classes'].astype(np.int64)
@@ -132,8 +133,8 @@ for img in os.listdir(img_dir): # iterate through each image in img_dir
                     columns=list(dat.columns))
         # Write classification to image frame and sreadsheet
         frame = cv2.putText(frame, mod_top, txtloc, 
-                cv2.FONT_HERSHEY_SIMPLEX, 1, 
-                (57,255,20), 2, cv2.LINE_AA, False)
+                cv2.FONT_HERSHEY_SIMPLEX, 1.8, 
+                (57,255,20), 3, cv2.LINE_AA, False)
         dat = pd.concat([frame_df, dat])
         cv2.imwrite(detimg, frame) 
     print(img_name, end='\n')
