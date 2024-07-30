@@ -1,5 +1,5 @@
 # Shark Detector v2
-[Shark detection and classification with machine learning, Jenrette et al., 2022](http://35.245.242.176/seaql/wp-content/uploads/2022/06/SD.pdf)
+[Shark detection and classification with machine learning, Jenrette et al., 2022](http://seaql.org/wp-content/uploads/2022/06/SD.pdf)
 <p align="center">
   <img src="mako.jpg" alt="SD mako" width="800"/>
 </p>
